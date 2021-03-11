@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import InfoCard from "./InfoCard";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 export default function Statistics() {
   const [shotData, setShotData] = useState([""]);
@@ -46,6 +46,16 @@ export default function Statistics() {
       <InfoCard name="TYKS" shots={getShots("TYKS")} all={860000}></InfoCard>
       <InfoCard name="OYS" shots={getShots("OYS")} all={740000}></InfoCard>
       <InfoCard name="Muut alueet" shots={getShots("Other areas")}></InfoCard>
+      <Grid item xs={12}>
+        <Typography color="textPrimary">Leevi Ojala</Typography>
+        <Typography color="textPrimary">
+          GitHub: <a href="https://github.com/leeviojala">leeviojala</a>
+        </Typography>
+        <Typography color="textPrimary">
+          LinkedIn:{" "}
+          <a href="https://www.linkedin.com/in/leeviojala/">in/leeviojala</a>
+        </Typography>
+      </Grid>
     </Grid>
   );
 }
