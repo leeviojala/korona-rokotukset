@@ -33,7 +33,7 @@ export default function InfoCard(props) {
                 </Grid>
                 <Grid item xs={12} align="center">
                   <Typography variant="h4">
-                    {Math.round(props.all / props.shots)} %
+                    {(props.all / props.shots).toFixed(2)} %
                   </Typography>
                 </Grid>
                 <Grid item xs={12} align="center">
