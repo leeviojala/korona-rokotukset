@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import InfoCard from "./InfoCard";
 import { Grid, Typography } from "@material-ui/core";
+import moment from "moment";
 
 export default function Statistics() {
   const [shotData, setShotData] = useState([""]);
@@ -41,6 +42,21 @@ export default function Statistics() {
       }),
     };
   };
+  const getShotDates = (area) => {
+    console.log("shotkutsuData");
+    const areaFilt = shotData.filter((e) => e.area === area);
+
+    return areaFilt
+      .map((e, i) =>
+        e.area === area
+          ? {
+              day: moment(e.date).format("DD.MM"),
+              value: i === 0 ? e.shots : e.shots - areaFilt[i - 1].shots,
+            }
+          : 0
+      )
+      .filter((e) => e !== 0);
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -58,36 +74,42 @@ export default function Statistics() {
         shots={getShots("Finland")}
         all={5518000}
         updateDate={getUpdateDate("Finland")}
+        shotDates={getShotDates("Finland")}
       ></InfoCard>
       <InfoCard
         name="KYS"
         shots={getShots("KYS")}
         all={815000}
         updateDate={getUpdateDate("KYS")}
+        shotDates={getShotDates("KYS")}
       ></InfoCard>
       <InfoCard
         name="HYKS"
         shots={getShots("HYKS")}
         all={1500000}
         updateDate={getUpdateDate("HYKS")}
+        shotDates={getShotDates("HYKS")}
       ></InfoCard>
       <InfoCard
         name="TYKS"
         shots={getShots("TYKS")}
         all={860000}
         updateDate={getUpdateDate("TYKS")}
+        shotDates={getShotDates("TYKS")}
       ></InfoCard>
       <InfoCard
         name="OYS"
         shots={getShots("OYS")}
         all={740000}
         updateDate={getUpdateDate("OYS")}
+        shotDates={getShotDates("OYS")}
       ></InfoCard>
       <InfoCard
         name="TAYS"
         shots={getShots("TAYS")}
         all={900000}
         updateDate={getUpdateDate("TAYS")}
+        shotDates={getShotDates("TAYS")}
       ></InfoCard>
       <Grid item xs={12}>
         <Typography color="textPrimary">Leevi Ojala</Typography>

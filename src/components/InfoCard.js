@@ -13,7 +13,9 @@ import { faSyringe } from "@fortawesome/free-solid-svg-icons";
 import UpdateIcon from "@material-ui/icons/Update";
 import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+import Calendar from "./Calendar";
 export default function InfoCard(props) {
+  console.log(props);
   return (
     <Grid item xs={12} md={6}>
       {props.shots ? (
@@ -64,6 +66,9 @@ export default function InfoCard(props) {
                     </span>
                     <span>{props.updateDate.time}</span>
                   </Typography>
+                </Grid>
+                <Grid item xs={12} style={{ height: "200px" }}>
+                  <Calendar shotDates={props.shotDates}></Calendar>
                 </Grid>
               </Grid>
             </CardContent>
