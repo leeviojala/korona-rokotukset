@@ -48,7 +48,7 @@ export default function InfoCard(props) {
                   </Typography>
                   <LinearProgress
                     variant="determinate"
-                    value={Math.round(props.all / props.shots)}
+                    value={Math.round((100 / props.all) * props.shots)}
                   ></LinearProgress>
                 </Grid>
 
