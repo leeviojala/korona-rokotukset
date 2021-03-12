@@ -15,7 +15,6 @@ import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import Calendar from "./Calendar";
 import InfoIcon from "@material-ui/icons/Info";
 export default function InfoCard(props) {
-  console.log(props);
   return (
     <Grid item xs={12} md={6}>
       {props.shots ? (
@@ -44,7 +43,7 @@ export default function InfoCard(props) {
 
                 <Grid item xs={12} align="center">
                   <Typography variant="body1">
-                    {((100 / props.all) * props.shots).toFixed(2)} %
+                    {((100 / props.all) * props.shots).toFixed(1)} %
                   </Typography>
                   <LinearProgress
                     variant="determinate"
