@@ -51,6 +51,7 @@ export default function Statistics() {
         e.area === area
           ? {
               day: moment(e.date).format("DD.MM"),
+              name: moment(e.date).format("DD.MM"),
               rokotetut: i === 0 ? e.shots : e.shots - areaFilt[i - 1].shots,
             }
           : 0

@@ -27,9 +27,9 @@ export default function Calendar(props) {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="day" />
         <YAxis />
-        <Tooltip labelFormatter={() => "Info"} />
+        <Tooltip labelStyle={{ color: "gray", fontWeight: "bold" }} />
         <Area
-          type="monotone"
+          type="natural"
           dataKey="rokotetut"
           stroke="#8884d8"
           fill="#8884d8"
