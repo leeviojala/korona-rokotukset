@@ -26,11 +26,7 @@ export default function Statistics() {
   };
   const getUpdateDate = (area) => {
     const parsed = new Date(
-      Math.max(
-        ...shotData.map((e) =>
-          e.area === area ? new Date(e.date) : Date.now()
-        )
-      )
+      Math.max(...shotData.map((e) => (e.area === area ? new Date(e.date) : 0)))
     );
 
     return {
@@ -61,37 +57,37 @@ export default function Statistics() {
         name="Koko Suomi"
         shots={getShots("Finland")}
         all={5518000}
-        updateDate={getUpdateDate()}
+        updateDate={getUpdateDate("Finland")}
       ></InfoCard>
       <InfoCard
         name="KYS"
         shots={getShots("KYS")}
         all={815000}
-        updateDate={getUpdateDate()}
+        updateDate={getUpdateDate("KYS")}
       ></InfoCard>
       <InfoCard
         name="HYKS"
         shots={getShots("HYKS")}
         all={1500000}
-        updateDate={getUpdateDate()}
+        updateDate={getUpdateDate("HYKS")}
       ></InfoCard>
       <InfoCard
         name="TYKS"
         shots={getShots("TYKS")}
         all={860000}
-        updateDate={getUpdateDate()}
+        updateDate={getUpdateDate("TYKS")}
       ></InfoCard>
       <InfoCard
         name="OYS"
         shots={getShots("OYS")}
         all={740000}
-        updateDate={getUpdateDate()}
+        updateDate={getUpdateDate("OYS")}
       ></InfoCard>
       <InfoCard
         name="TAYS"
         shots={getShots("TAYS")}
         all={900000}
-        updateDate={getUpdateDate()}
+        updateDate={getUpdateDate("TAYS")}
       ></InfoCard>
       <Grid item xs={12}>
         <Typography color="textPrimary">Leevi Ojala</Typography>
