@@ -75,7 +75,7 @@ export default function InfoCard(props) {
           </Card>
         </Grow>
       ) : (
-        <Skeleton variant="rect" height={500} />
+        <Skeleton variant="rect" height={450} />
       )}
     </Grid>
   );
