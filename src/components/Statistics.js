@@ -24,6 +24,27 @@ export default function Statistics() {
     //   .sort()
     //   .reverse()[1];
   };
+  const getUpdateDate = (area) => {
+    const parsed = new Date(
+      Math.max(
+        ...shotData.map((e) =>
+          e.area === area ? new Date(e.date) : Date.now()
+        )
+      )
+    );
+
+    return {
+      date: parsed.toLocaleString("fi-FI", {
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+      }),
+      time: parsed.toLocaleString("fi-FI", {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+    };
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -40,12 +61,38 @@ export default function Statistics() {
         name="Koko Suomi"
         shots={getShots("Finland")}
         all={5518000}
+        updateDate={getUpdateDate()}
       ></InfoCard>
-      <InfoCard name="KYS" shots={getShots("KYS")} all={815000}></InfoCard>
-      <InfoCard name="HYKS" shots={getShots("HYKS")} all={1500000}></InfoCard>
-      <InfoCard name="TYKS" shots={getShots("TYKS")} all={860000}></InfoCard>
-      <InfoCard name="OYS" shots={getShots("OYS")} all={740000}></InfoCard>
-      <InfoCard name="Muut alueet" shots={getShots("Other areas")}></InfoCard>
+      <InfoCard
+        name="KYS"
+        shots={getShots("KYS")}
+        all={815000}
+        updateDate={getUpdateDate()}
+      ></InfoCard>
+      <InfoCard
+        name="HYKS"
+        shots={getShots("HYKS")}
+        all={1500000}
+        updateDate={getUpdateDate()}
+      ></InfoCard>
+      <InfoCard
+        name="TYKS"
+        shots={getShots("TYKS")}
+        all={860000}
+        updateDate={getUpdateDate()}
+      ></InfoCard>
+      <InfoCard
+        name="OYS"
+        shots={getShots("OYS")}
+        all={740000}
+        updateDate={getUpdateDate()}
+      ></InfoCard>
+      <InfoCard
+        name="TAYS"
+        shots={getShots("TAYS")}
+        all={900000}
+        updateDate={getUpdateDate()}
+      ></InfoCard>
       <Grid item xs={12}>
         <Typography color="textPrimary">Leevi Ojala</Typography>
         <Typography color="textPrimary">

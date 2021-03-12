@@ -10,12 +10,14 @@ import { Skeleton } from "@material-ui/lab";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyringe } from "@fortawesome/free-solid-svg-icons";
+import UpdateIcon from "@material-ui/icons/Update";
+import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
+import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 export default function InfoCard(props) {
-  console.log(Math.round(props.all / props.shots));
   return (
     <Grid item xs={12} md={6}>
       {props.shots ? (
-        <Grow in={props.shots}>
+        <Grow in={props.shots ? true : false}>
           <Card>
             <CardContent>
               <Grid container spacing={2} justify="center">
@@ -24,23 +26,44 @@ export default function InfoCard(props) {
                 </Grid>
                 <Grid item xs={12} align="center">
                   <Typography variant="h5">
-                    {props.shots} / {props.all}{" "}
+                    {props.shots} /{" "}
+                    <span style={{ opacity: "0.6" }}>{props.all}</span>
                     <FontAwesomeIcon
                       style={{ paddingLeft: "8px" }}
                       icon={faSyringe}
                     ></FontAwesomeIcon>
                   </Typography>
                 </Grid>
+
                 <Grid item xs={12} align="center">
-                  <Typography variant="h4">
+                  <Typography variant="body1">
                     {(props.all / props.shots).toFixed(2)} %
                   </Typography>
-                </Grid>
-                <Grid item xs={12} align="center">
                   <LinearProgress
                     variant="determinate"
                     value={Math.round(props.all / props.shots)}
                   ></LinearProgress>
+                </Grid>
+
+                <Grid item xs={12} align="left">
+                  <Typography variant="subtitle1" style={{ opacity: "0.6" }}>
+                    <UpdateIcon
+                      style={{ paddingRight: "8px" }}
+                      fontSize="inherit"
+                    ></UpdateIcon>
+                    <span>Päivitetty:</span>
+                  </Typography>
+                  <Typography variant="subtitle2">
+                    {" "}
+                    <span style={{ paddingRight: "4px" }}>
+                      <CalendarTodayIcon fontSize="inherit"></CalendarTodayIcon>
+                    </span>
+                    <span>{props.updateDate.date}</span>
+                    <span style={{ paddingLeft: "16px", paddingRight: "4px" }}>
+                      <QueryBuilderIcon fontSize="inherit"></QueryBuilderIcon>
+                    </span>
+                    <span>{props.updateDate.time}</span>
+                  </Typography>
                 </Grid>
               </Grid>
             </CardContent>
