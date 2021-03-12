@@ -28,7 +28,12 @@ export default function Calendar(props) {
         <XAxis dataKey="day" />
         <YAxis />
         <Tooltip labelFormatter={() => "Info"} />
-        <Area type="monotone" dataKey="value" stroke="#8884d8" fill="#8884d8" />
+        <Area
+          type="monotone"
+          dataKey="rokotetut"
+          stroke="#8884d8"
+          fill="#8884d8"
+        />
       </AreaChart>
     </ResponsiveContainer>
   );
