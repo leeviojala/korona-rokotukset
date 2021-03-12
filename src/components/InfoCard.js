@@ -4,16 +4,16 @@ import {
   Grid,
   Grow,
   LinearProgress,
+  Tooltip,
   Typography,
 } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSyringe } from "@fortawesome/free-solid-svg-icons";
 import UpdateIcon from "@material-ui/icons/Update";
 import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import Calendar from "./Calendar";
+import InfoIcon from "@material-ui/icons/Info";
 export default function InfoCard(props) {
   console.log(props);
   return (
@@ -30,16 +30,21 @@ export default function InfoCard(props) {
                   <Typography variant="h5">
                     {props.shots} /{" "}
                     <span style={{ opacity: "0.6" }}>{props.all}</span>
-                    <FontAwesomeIcon
-                      style={{ paddingLeft: "8px" }}
-                      icon={faSyringe}
-                    ></FontAwesomeIcon>
+                    <Tooltip
+                      title="Suhteessa aikuisväestöön"
+                      aria-label="Suhteessa aikuisväestöön"
+                    >
+                      <InfoIcon
+                        fontSize="inherit"
+                        style={{ paddingLeft: "8px" }}
+                      ></InfoIcon>
+                    </Tooltip>
                   </Typography>
                 </Grid>
 
                 <Grid item xs={12} align="center">
                   <Typography variant="body1">
-                    {(props.all / props.shots).toFixed(2)} %
+                    {((100 / props.all) * props.shots).toFixed(2)} %
                   </Typography>
                   <LinearProgress
                     variant="determinate"

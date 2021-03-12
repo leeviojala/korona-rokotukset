@@ -58,6 +58,7 @@ export default function Statistics() {
       )
       .filter((e) => e !== 0);
   };
+  // kuvaaja prosentteina kokonaismäärästä ja graafi ennustamaan rokotustahtia
 
   useEffect(() => {
     const getData = async () => {
@@ -73,7 +74,7 @@ export default function Statistics() {
       <InfoCard
         name="Koko Suomi"
         shots={getShots("Finland")}
-        all={5518000}
+        all={5518000 * 0.813}
         updateDate={getUpdateDate("Finland")}
         shotDates={getShotDates("Finland")}
       ></InfoCard>
