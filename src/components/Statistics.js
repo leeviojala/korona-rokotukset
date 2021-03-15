@@ -81,35 +81,35 @@ export default function Statistics() {
       <InfoCard
         name="KYS"
         shots={getShots("KYS")}
-        all={815000}
+        all={815000 * 0.813}
         updateDate={getUpdateDate("KYS")}
         shotDates={getShotDates("KYS")}
       ></InfoCard>
       <InfoCard
         name="HYKS"
         shots={getShots("HYKS")}
-        all={1500000}
+        all={1500000 * 0.813}
         updateDate={getUpdateDate("HYKS")}
         shotDates={getShotDates("HYKS")}
       ></InfoCard>
       <InfoCard
         name="TYKS"
         shots={getShots("TYKS")}
-        all={860000}
+        all={860000 * 0.813}
         updateDate={getUpdateDate("TYKS")}
         shotDates={getShotDates("TYKS")}
       ></InfoCard>
       <InfoCard
         name="OYS"
         shots={getShots("OYS")}
-        all={740000}
+        all={740000 * 0.813}
         updateDate={getUpdateDate("OYS")}
         shotDates={getShotDates("OYS")}
       ></InfoCard>
       <InfoCard
         name="TAYS"
         shots={getShots("TAYS")}
-        all={900000}
+        all={900000 * 0.813}
         updateDate={getUpdateDate("TAYS")}
         shotDates={getShotDates("TAYS")}
       ></InfoCard>
