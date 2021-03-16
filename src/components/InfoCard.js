@@ -15,6 +15,14 @@ import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import Calendar from "./Calendar";
 import InfoIcon from "@material-ui/icons/Info";
 export default function InfoCard(props) {
+  const [tooltip, openTooltip] = React.useState(false);
+  const handleTooltipOpen = () => {
+    openTooltip(true);
+  };
+  const handleTooltipClose = () => {
+    openTooltip(false);
+  };
+
   return (
     <Grid item xs={12} md={6}>
       {props.shots ? (
@@ -30,12 +38,19 @@ export default function InfoCard(props) {
                     {props.shots} /{" "}
                     <span style={{ opacity: "0.6" }}>{props.all}</span>
                     <Tooltip
-                      title="Suhteessa aikuisväestöön"
-                      aria-label="Suhteessa aikuisväestöön"
+                      title="Suhteessa aikuisväestöön."
+                      aria-label="Suhteessa aikuisväestöön."
+                      onClose={handleTooltipClose}
+                      open={tooltip}
+                      disableFocusListener
+                      disableHoverListener
+                      disableTouchListener
                     >
                       <InfoIcon
                         fontSize="inherit"
                         style={{ paddingLeft: "8px" }}
+                        onMouseEnter={handleTooltipOpen}
+                        onMouseLeave={handleTooltipClose}
                       ></InfoIcon>
                     </Tooltip>
                   </Typography>
