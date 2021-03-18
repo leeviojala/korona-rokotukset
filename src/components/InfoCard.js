@@ -1,9 +1,13 @@
 import {
   Card,
   CardContent,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
   Grid,
   Grow,
   LinearProgress,
+  Switch,
   Tooltip,
   Typography,
 } from "@material-ui/core";
@@ -16,6 +20,10 @@ import Calendar from "./Calendar";
 import InfoIcon from "@material-ui/icons/Info";
 export default function InfoCard(props) {
   const [tooltip, openTooltip] = React.useState(false);
+  const [cumulative, setCumulative] = React.useState(false);
+  const toggleCumulative = () => {
+    setCumulative(!cumulative);
+  };
   const handleTooltipOpen = () => {
     openTooltip(true);
   };
@@ -36,7 +44,9 @@ export default function InfoCard(props) {
                 <Grid item xs={12} align="center">
                   <Typography variant="h5">
                     {props.shots} /{" "}
-                    <span style={{ opacity: "0.6" }}>{props.all}</span>
+                    <span style={{ opacity: "0.6" }}>
+                      {props.all.toFixed(0)}
+                    </span>
                     <Tooltip
                       title="Suhteessa aikuisväestöön."
                       aria-label="Suhteessa aikuisväestöön."
@@ -85,9 +95,28 @@ export default function InfoCard(props) {
                     </span>
                     <span>{props.updateDate.time}</span>
                   </Typography>
+                  <FormControl>
+                    <FormGroup>
+                      <FormControlLabel
+                        value="Kumulatiivinen graafi"
+                        control={
+                          <Switch
+                            checked={cumulative}
+                            onChange={() => toggleCumulative()}
+                            color="primary"
+                          />
+                        }
+                        label="Kumulatiivinen graafi"
+                        labelPlacement="end"
+                      />
+                    </FormGroup>
+                  </FormControl>
                 </Grid>
                 <Grid item xs={12} style={{ height: "200px" }}>
-                  <Calendar shotDates={props.shotDates}></Calendar>
+                  <Calendar
+                    shotDates={props.shotDates}
+                    cumulative={cumulative}
+                  ></Calendar>
                 </Grid>
               </Grid>
             </CardContent>

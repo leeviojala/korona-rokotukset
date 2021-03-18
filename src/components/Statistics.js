@@ -53,6 +53,7 @@ export default function Statistics() {
               day: moment(e.date).format("DD.MM"),
               name: moment(e.date).format("DD.MM"),
               rokotetut: i === 0 ? e.shots : e.shots - areaFilt[i - 1].shots,
+              rokotetutKum: e.shots,
             }
           : 0
       )
@@ -88,14 +89,14 @@ export default function Statistics() {
       <InfoCard
         name="HYKS"
         shots={getShots("HYKS")}
-        all={1500000 * 0.813}
+        all={2162228 * 0.813}
         updateDate={getUpdateDate("HYKS")}
         shotDates={getShotDates("HYKS")}
       ></InfoCard>
       <InfoCard
         name="TYKS"
         shots={getShots("TYKS")}
-        all={860000 * 0.813}
+        all={870000 * 0.813}
         updateDate={getUpdateDate("TYKS")}
         shotDates={getShotDates("TYKS")}
       ></InfoCard>

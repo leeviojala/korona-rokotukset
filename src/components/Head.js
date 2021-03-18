@@ -6,7 +6,8 @@ export default function Head() {
     <Alert severity="info" style={{ paddingTop: "16px" }}>
       <AlertTitle>Rokotustilanne Suomessa</AlertTitle>
       Alla on kuvattuna suomen koronarokotustilanne{" "}
-      <strong>ensimmäisen rokoteannoksen</strong> osalta reaaliaikaisesti.
+      <strong>ensimmäisen rokoteannoksen</strong> osalta reaaliaikaisesti
+      sairaanhoidon erityisvastuualueilla.
       <strong> Tämä data ei välttämättä pidä paikkaansa!</strong>
     </Alert>
   );
