@@ -20,7 +20,7 @@ export default function Calendar(props) {
             margin={{
               top: 0,
               right: 0,
-              left: 10,
+              left: 5,
               bottom: 0,
             }}
           >
@@ -43,7 +43,7 @@ export default function Calendar(props) {
             margin={{
               top: 0,
               right: 0,
-              left: 10,
+              left: 5,
               bottom: 0,
             }}
           >
