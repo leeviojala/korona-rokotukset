@@ -35,10 +35,12 @@ export default function Statistics() {
         year: "numeric",
         month: "long",
         day: "2-digit",
+        timeZone: "UTC",
       }),
-      time: parsed.toLocaleString("fi-FI", {
+      time: parsed.toLocaleTimeString("fi-FI", {
         hour: "2-digit",
         minute: "2-digit",
+        timeZone: "UTC",
       }),
     };
   };
