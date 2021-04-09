@@ -48,7 +48,7 @@ export default function InfoCard(props) {
                       {props.all.toFixed(0)}
                     </span>
                     <Tooltip
-                      title="Suhteessa aikuisväestöön."
+                      title="Suhteessa aikuisväestöön. (yli 15-vuotiaat)"
                       aria-label="Suhteessa aikuisväestöön."
                       onClose={handleTooltipClose}
                       open={tooltip}
